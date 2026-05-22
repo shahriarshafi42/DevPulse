@@ -8,6 +8,7 @@ import config from "./config";
 import { initDB, pool } from "./db";
 import { issueRoute } from "./modules/issues/issues.route";
 import { userRoute } from "./modules/user/user.route";
+import { authRoute } from "./modules/auth/auth.route";
 const app: Application = express();
 const port = config.port;
 
@@ -20,12 +21,12 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
-
 //user
-app.use("/api/auth/signup", userRoute)
+app.use("/api/auth/signup", userRoute);
+// auth
+app.use("/api/auth/login", authRoute);
+
 // issuues
-
-app.use("/api/issues", issueRoute)
-
+app.use("/api/issues", issueRoute);
 
 export default app;
