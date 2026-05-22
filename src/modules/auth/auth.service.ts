@@ -30,6 +30,7 @@ const loginUserINtoDB = async (payload: {
     id: user.id,
     name: user.name,
     email: user.email,
+    role: user.role
   };
   const users={
     id: user.id,
@@ -44,7 +45,7 @@ const loginUserINtoDB = async (payload: {
     expiresIn: "1d",
   });
   return {token,users};
-};
+};  
 export const authService = {
   loginUserINtoDB,
 };
