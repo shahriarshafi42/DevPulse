@@ -1,27 +1,23 @@
-import type { Request, Response } from "express"
+import type { Request, Response } from "express";
 import { authService } from "./auth.service";
 
-const loginUser =async (req: Request, res: Response)=>{
+const loginUser = async (req: Request, res: Response) => {
+  try {
+    const result = await authService.loginUserINtoDB(req.body);
 
-try {
-    const result = await authService.loginUserINtoDB(req.body)
-
-     res.status(201).json({
+    res.status(201).json({
       success: true,
       message: "Login successful",
       data: result,
     });
-    
-} catch (error: any) {
+  } catch (error: any) {
     res.status(500).json({
       message: error.message,
       data: error,
     });
-}
+  }
+};
 
-}
-
-export const authController={
-
-    loginUser,
-}
+export const authController = {
+  loginUser,
+};

@@ -21,14 +21,10 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
-//user
 app.use("/api/auth/signup", userRoute);
-// auth
+
 app.use("/api/auth/login", authRoute);
 
-// issuues
 app.use("/api/issues", issueRoute);
-
-
 
 export default app;

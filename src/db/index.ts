@@ -17,8 +17,6 @@ export const initDB = async () => {
       updated_at TIMESTAMP DEFAULT NOW()
     );
   `);
-  
-    
 
     await pool.query(`
           CREATE TABLE IF NOT EXISTS issues(

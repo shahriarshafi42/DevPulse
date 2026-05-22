@@ -4,7 +4,6 @@ import type { Iissues } from "./issues.interface";
 const createIssueFromDB = async (payload: Iissues) => {
   const { title, description, type, status, reporter_id } = payload;
   //user
- 
 
   const result = await pool.query(
     `   INSERT INTO issues(title, description, type,status,reporter_id) VALUES ($1,$2,$3,$4,$5)
